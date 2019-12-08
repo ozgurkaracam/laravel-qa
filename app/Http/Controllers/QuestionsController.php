@@ -14,6 +14,11 @@ class QuestionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth',['except'=>['show']]);
+    }
+
     public function index()
     {
         $questions=Question::latest()->paginate(5);
