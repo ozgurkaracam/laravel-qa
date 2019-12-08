@@ -34,7 +34,17 @@
                                    <div class="d-flex align-items-center">
                                        <a href="{{$question->url}}">{{$question->title}}</a>
                                        <div class="ml-auto">
+                                           @if(\Illuminate\Support\Facades\Auth::user()->can('update-question',$question))
                                            <a href="{{ route('questions.edit',$question->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
+                                           @endif
+                                           @if(\Illuminate\Support\Facades\Auth::user()->can('delete-question',$question))
+                                           <form class="form-delete" action="{{ route('questions.destroy',$question->id) }}" method="post">
+                                               @method('DELETE')
+                                               @csrf
+                                               <input type="submit" value="Delete" class="btn btn-sm btn-outline-danger">
+                                           </form>
+                                            @endif
+
                                        </div>
                                    </div>
                                    <p class="lead">Asked by <a href="{{$question->user->url}}">{{$question->user->name}}</a> <small class="text-muted"> {{$question->get_date}} </small> </p>
