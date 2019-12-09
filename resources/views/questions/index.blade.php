@@ -23,7 +23,7 @@
                                        <strong>{{$question->votes}}</strong> {{Str::plural('vote',$question->votes)}}
                                    </div>
                                    <div class="status {{$question->status}}">
-                                       <strong>{{$question->answers}}</strong> {{Str::plural('answer',$question->votes)}}
+                                       <strong>{{$question->answers_count}}</strong> {{Str::plural('answer',$question->votes)}}
                                    </div>
                                    <div class="view">
                                        <strong>{{$question->views}}</strong> {{Str::plural('view',$question->votes)}}
@@ -31,9 +31,13 @@
 
                                </div>
                                <div class="media-body">
+
                                    <div class="d-flex align-items-center">
+
                                        <a href="{{$question->url}}">{{$question->title}}</a>
+
                                        <div class="ml-auto">
+                                           @if(\Illuminate\Support\Facades\Auth::user())
                                            @if(\Illuminate\Support\Facades\Auth::user()->can('update-question',$question))
                                            <a href="{{ route('questions.edit',$question->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
                                            @endif
@@ -44,8 +48,11 @@
                                                <input type="submit" value="Delete" class="btn btn-sm btn-outline-danger">
                                            </form>
                                             @endif
+                                           @endif
+
 
                                        </div>
+
                                    </div>
                                    <p class="lead">Asked by <a href="{{$question->user->url}}">{{$question->user->name}}</a> <small class="text-muted"> {{$question->get_date}} </small> </p>
                                    <h3 class="mt-0">
