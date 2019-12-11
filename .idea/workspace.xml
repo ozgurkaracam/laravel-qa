@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dcb9a038-591f-4f0f-b49d-a4c163494788" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/answers/_form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/answers/_form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/answers/answers.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/answers/answers.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/answers/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/answers/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/questions/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/questions/show.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="dcb9a038-591f-4f0f-b49d-a4c163494788" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
