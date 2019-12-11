@@ -15,9 +15,10 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('answers.update',$question->answer) }}" method="post">
-                            @method('UPDATE')
-                            @include('answers._form',['buttonText'=>"Edit!",'answer'=>$question->answer])
+                        <form action="{{ route('answers.update',[$question,$answer]) }}" method="post">
+                            {{ csrf_field() }}
+                            {{ method_field('PUT') }}
+                            @include('answers._form',['buttonText'=>"Edit!",'answer'=>$answer])
                         </form>
                     </div>
                 </div>

@@ -41,6 +41,7 @@
                             <div class="col-md-4"></div>
                             <div class="col-md-4 text-center">
                                 <a href="{{ route('answers.index',$question) }}" class="btn btn-success col-md-6">Reply</a>
+
                             </div>
                         </div>
                     </div>

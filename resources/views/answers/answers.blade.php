@@ -27,7 +27,13 @@
                     </a>
                 </div>
                 <div class="media-body">
-{{--                        <a href="{{ route('answer.edit',$answer) }}" class="btn btn-sm btn-outline-info">Edit</a>--}}
+                        <a href="{{ route('answers.edit',[$question,$answer]) }}" class="btn btn-sm btn-outline-info">Edit</a>
+                    <form action="{{ route('answers.destroy',[$question,$answer]) }}" method="post" class="form-delete">
+
+                        @method('DELETE')
+                        @csrf
+                        <input type="submit" class="btn btn-sm btn-outline-danger" value="Delete"> </input>
+                    </form>
                     {!! $answer->body_html !!}
 
                     <div class="float-right">
