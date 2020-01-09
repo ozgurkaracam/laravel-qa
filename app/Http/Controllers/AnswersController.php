@@ -101,7 +101,7 @@ class AnswersController extends Controller
     public function destroy(Question $question,Answer $answer)
     {
         $this->authorize('delete',$answer);
-        Answer::destroy($answer->id);
+        Answer::destroy($answer->id);,
 
         return redirect()->route('questions.show',$question->slug)->with('success','Your answer deleted!!');
     }

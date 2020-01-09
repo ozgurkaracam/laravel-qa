@@ -27,6 +27,7 @@
                     </a>
                 </div>
                 <div class="media-body">
+                x
                     @can('update',$answer)
                         <a href="{{ route('answers.edit',[$question,$answer]) }}" class="btn btn-sm btn-outline-info">Edit</a>
                        @endcan
