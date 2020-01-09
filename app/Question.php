@@ -18,6 +18,10 @@ class Question extends Model
         return $this->hasMany(Answer::class);
     }
 
+    public function likedUser(){
+        return $this->belongsToMany('App\User','questionlikes');
+    }
+
     public function  setTitleAttribute($value){
         $this->attributes['title']=$value;
         $this->attributes['slug']=Str::slug($value);

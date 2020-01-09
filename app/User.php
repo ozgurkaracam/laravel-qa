@@ -46,6 +46,10 @@ class User extends Authenticatable
         return $this->hasMany(Answer::class);
     }
 
+    public function likeQuestions(){
+        return $this->belongsToMany('\App\Question','questionlikes');
+    }
+
     public function getGetDateAttribute(){
         return $this->created_at->diffForHumans();
     }

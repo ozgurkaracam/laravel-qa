@@ -16,6 +16,7 @@ class AnswersController extends Controller
      */
     public function index(Question $question)
     {
+        $this->authorize('auth');
         return view('answers.create',['question'=>$question]);
     }
 

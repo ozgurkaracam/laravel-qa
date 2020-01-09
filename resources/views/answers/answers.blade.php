@@ -7,7 +7,7 @@
         {{--                            </div>--}}
         {{--                        </div>--}}
         {{--                        <smal>Asked By <a href="{{ $question->user->url }}">{{ $question->user->name }}</a> - {{ $question->get_date }}</smal>--}}
-        <h1>{{$question->answers_count}} Answers</h1>
+        <h1>{{$question->answers->count()}} Answers</h1>
     </div>
     <div class="card-body">
         @include('layouts._messages')

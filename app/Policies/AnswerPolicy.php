@@ -18,7 +18,7 @@ class AnswerPolicy
      */
     public function viewAny(User $user)
     {
-        //
+
     }
 
     /**
@@ -41,7 +41,7 @@ class AnswerPolicy
      */
     public function create(User $user)
     {
-        //
+
     }
 
     /**
