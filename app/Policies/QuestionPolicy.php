@@ -41,7 +41,7 @@ class QuestionPolicy
      */
     public function create(User $user)
     {
-        //
+        
     }
 
     /**

@@ -2,7 +2,7 @@
 
 <div class="form-group">
     <label for="answer-body">Answer This Question!</label>
-    <textarea name="body" id="answer-body"  rows="10" class="form-control {{$errors->has('body') ? 'is-invalid' : ''}}">{{ Old('body' , $answer->text) }}</textarea>
+    <textarea name="body" id="answer-body"  rows="10" class="form-control {{$errors->has('body') ? 'is-invalid' : ''}}">{{ Old('body') }}</textarea>
     @if($errors->has('body'))
         <div class="invalid-feedback">
             <strong>{{$errors->first('body')}}</strong>

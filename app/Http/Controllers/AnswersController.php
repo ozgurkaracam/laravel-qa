@@ -71,6 +71,7 @@ class AnswersController extends Controller
      */
     public function edit(Question $question,Answer $answer)
     {
+        $this->authorize('update',$answer);
         return view('answers.edit',['question'=>$question,'answer'=>$answer]);
     }
 
@@ -83,6 +84,7 @@ class AnswersController extends Controller
      */
     public function update(Request $request,Question $question, Answer $answer)
     {
+        $this->authorize('update',$answer);
         $answer->text=$request->body;
         $answer->save();
 
@@ -98,6 +100,7 @@ class AnswersController extends Controller
      */
     public function destroy(Question $question,Answer $answer)
     {
+        $this->authorize('delete',$answer);
         Answer::destroy($answer->id);
 
         return redirect()->route('questions.show',$question->slug)->with('success','Your answer deleted!!');

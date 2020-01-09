@@ -8,9 +8,11 @@
                     <div class="card-header">
                         <div class="d-flex align-items-center">
                             <h2>All Questions</h2>
+                            @auth
                             <div class="ml-auto">
                                 <a href="{{route('questions.create')}}" class="btn btn-outline-secondary">Ask Question!</a>
                             </div>
+                            @endauth
                         </div>
                     </div>
 
