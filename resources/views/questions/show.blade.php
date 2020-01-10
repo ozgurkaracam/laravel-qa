@@ -17,16 +17,16 @@
                             <small>Asked By <a href="{{ $question->user->url }}">{{ $question->user->name }}</a> - {{ $question->get_date }}</small>
                         </div>
                         <div class="media">
-                            <div class="d-flex flex-column vote-controls mr-3">
+                            <div class="d-flex flex-column vote-controls mr-3 text-center">
                                 <a title="This question is useful" class="vote-up">
-                                    Vote Up
+                                    <i class="fas fa-caret-up fa-5x"></i>
                                 </a>
-                                <span class="votes-count">{{ $question->likedUser()->sum('like') }}</span>
+                                <span class="votes-count d-block">{{ $question->likedUser()->sum('like') }}</span>
                                 <a title="This question is not useful" class="vote-down off">
-                                    Vote Down
+                                    <i class="fas fa-caret-down fa-5x"></i>
                                 </a>
                                 <a title="Click to mark as favorite question (Click again to undo)" class="favorite">
-                                    Favorite
+                                    <i class="fas fa-star"></i>
                                     <span class="favorites-count">123</span>
                                 </a>
                             </div>

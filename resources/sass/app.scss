@@ -7,6 +7,12 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+//font awesome
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
 .counters{
     margin-right: 30px;
     font-size:10px;
@@ -42,6 +48,10 @@
 }
 
 .vote-controls{
+}
+
+.votes-count{
+    font-size: 30px;
 }
 
 form.form-delete {

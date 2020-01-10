@@ -48,4 +48,8 @@ class Question extends Model
         return \Parsedown::instance()->text($this->body);
     }
 
+    public function bestAnswer(){
+            return $this->belongsTo(Answer::class,'best_answer_id','id');
+    }
+
 }

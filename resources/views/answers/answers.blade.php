@@ -13,16 +13,19 @@
         @include('layouts._messages')
         @foreach($question->answers as $answer)
             <div class="media">
-                <div class="d-flex flex-column vote-controls mr-4">
+                <div class="m-auto" style="cursor: pointer">
+                    <i class="fas fa-check fa-3x"></i>
+                </div>
+                <div class="d-flex flex-column vote-controls mr-4 text-center">
                     <a title="This question is useful" class="vote-up">
-                        Vote Up
+                        <i class="fas fa-caret-up fa-5x"></i>
                     </a>
                     <span class="votes-count">{{ $answer->likedUser()->sum('like') }}</span>
                     <a title="This question is not useful" class="vote-down off">
-                        Vote Down
+                        <i class="fas fa-caret-down fa-5x"></i>
                     </a>
                     <a title="Click to mark as favorite question (Click again to undo)" class="favorite">
-                        Favorite
+                        <i class="fas fa-star fa-2x"></i>
                         <span class="favorites-count">123</span>
                     </a>
                 </div>
