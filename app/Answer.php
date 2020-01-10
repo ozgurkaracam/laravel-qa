@@ -38,4 +38,10 @@ class Answer extends Model
         });
     }
 
+    public function isBest(){
+        $q=new Question();
+        $q=$this->question;
+        return $q->best_answer_id===$this->id;
+    }
+
 }

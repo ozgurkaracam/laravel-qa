@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Answer;
 use App\Http\Requests\AskQuestionRequest;
 use App\Question;
 use Illuminate\Auth\Access\Gate;
@@ -107,4 +108,13 @@ class QuestionsController extends Controller
         return redirect()->route('questions.index')->with('success','Your question has been deleted!');
 
     }
+
+    public function bestanswer(Request $request,Question $question){
+        $answer=Answer::find($request->answer);
+        $question->bestAnswer()->dissociate();
+        $question->bestAnswer()->associate($answer)->save();
+        return redirect()->back();
+    }
 }
+
+

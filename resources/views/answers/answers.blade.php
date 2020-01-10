@@ -13,8 +13,12 @@
         @include('layouts._messages')
         @foreach($question->answers as $answer)
             <div class="media">
+                <form action="{{ route('questions.bestanswer',$answer->question) }}" id="selectbest" method="POST">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="answer", value="{{ $answer->id }}">
+                </form>
                 <div class="m-auto" style="cursor: pointer">
-                    <i class="fas fa-check fa-3x"></i>
+                    <i class="fas fa-check fa-3x" onclick="getElementById('selectbest').submit()" @if($answer->isBest())style="color: limegreen" @endif></i>
                 </div>
                 <div class="d-flex flex-column vote-controls mr-4 text-center">
                     <a title="This question is useful" class="vote-up">
@@ -22,7 +26,7 @@
                     </a>
                     <span class="votes-count">{{ $answer->likedUser()->sum('like') }}</span>
                     <a title="This question is not useful" class="vote-down off">
-                        <i class="fas fa-caret-down fa-5x"></i>
+                        <i class="fas fa-caret-down fa-5x" ></i>
                     </a>
                     <a title="Click to mark as favorite question (Click again to undo)" class="favorite">
                         <i class="fas fa-star fa-2x"></i>

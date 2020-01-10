@@ -16,7 +16,7 @@ class AnswersController extends Controller
      */
     public function index(Question $question)
     {
-        $this->authorize('auth');
+        $this->middleware('auth');
         return view('answers.create',['question'=>$question]);
     }
 
@@ -29,6 +29,8 @@ class AnswersController extends Controller
     {
 
     }
+
+
 
     /**
      * Store a newly created resource in storage.
