@@ -16,6 +16,10 @@ class Answer extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function likedUser(){
+        return $this->morphToMany(User::class,'likable','questionlikes','likable_id','user_id');
+    }
+
     public function getBodyHtmlAttribute(){
         return \Parsedown::instance()->text($this->text);
     }

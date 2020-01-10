@@ -15,8 +15,7 @@ class CreateQuestionlikesTable extends Migration
     {
         Schema::create('questionlikes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('question_id');
-            $table->foreign('question_id')->on('questions')->references('id')->onDelete('CASCADE');
+            $table->unsignedBigInteger('likable_id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->on('users')->references('id')->onDelete('CASCADE');
             $table->tinyInteger('like');

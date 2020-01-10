@@ -19,7 +19,7 @@ class Question extends Model
     }
 
     public function likedUser(){
-        return $this->belongsToMany('App\User','questionlikes');
+        return $this->morphedByMany('App\User','likable','questionlikes','likable_id','user_id')->withPivot('like');
     }
 
     public function  setTitleAttribute($value){

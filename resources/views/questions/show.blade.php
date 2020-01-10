@@ -21,7 +21,7 @@
                                 <a title="This question is useful" class="vote-up">
                                     Vote Up
                                 </a>
-                                <span class="votes-count">1230</span>
+                                <span class="votes-count">{{ $question->likedUser()->sum('like') }}</span>
                                 <a title="This question is not useful" class="vote-down off">
                                     Vote Down
                                 </a>

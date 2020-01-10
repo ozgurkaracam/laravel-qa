@@ -46,8 +46,8 @@ class User extends Authenticatable
         return $this->hasMany(Answer::class);
     }
 
-    public function likeQuestions(){
-        return $this->belongsToMany('\App\Question','questionlikes');
+    public function likes(){
+        return $this->morphToMany('\App\Question','likable','questionlikes','user_id','likable_id')->withPivot('like');
     }
 
     public function getGetDateAttribute(){
