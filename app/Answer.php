@@ -47,4 +47,6 @@ class Answer extends Model
         return $q->best_answer_id===$this->id;
     }
 
+
+
 }

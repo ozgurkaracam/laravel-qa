@@ -46,10 +46,12 @@ class User extends Authenticatable
         return $this->hasMany(Answer::class);
     }
 
-    public function likes(){
-        return $this->morphedByMany('\App\Question','likable','questionlikes','user_id','likable_id')->withPivot('like');
+    public function likeQuestions(){
+    return $this->morphedByMany('\App\Question','likable','questionlikes','user_id','likable_id')->withPivot('like');
     }
-
+    public function likeAnswers(){
+        return $this->morphedByMany('\App\Answer','likable','questionlikes','user_id','likable_id')->withPivot('like');
+    }
     public function favoriteAnswers(){
         return $this->morphedByMany(Answer::class,'fav','favorites','user_id','fav_id');
     }

@@ -32,14 +32,14 @@
                 @endif
                 <div class="d-flex flex-column vote-controls mr-4 text-center">
                     <a title="This question is useful" class="vote-up">
-                        <i class="fas fa-caret-up fa-5x"></i>
+                        <i class="fas fa-caret-up fa-5x" @if(\Illuminate\Support\Facades\Auth::user() && $answer->likedUser()->where('like',1)->find(\Illuminate\Support\Facades\Auth::user()))style="color:greenyellow"@endif></i>
                     </a>
                     <span class="votes-count">{{ $answer->likedUser()->sum('like') }}</span>
                     <a title="This question is not useful" class="vote-down off">
-                        <i class="fas fa-caret-down fa-5x" ></i>
+                        <i class="fas fa-caret-down fa-5x" @if(\Illuminate\Support\Facades\Auth::user() && $answer->likedUser()->where('like',-1)->find(\Illuminate\Support\Facades\Auth::user()))style="color:red"@endif></i>
                     </a>
                     <a title="Click to mark as favorite question (Click again to undo)" class="favorite">
-                        <i class="fas fa-star fa-2x"></i>
+                        <i class="fas fa-star fa-2x" @if(\Illuminate\Support\Facades\Auth::user() && $answer->favoritedUsers()->find(\Illuminate\Support\Facades\Auth::user()))style="color: orange"@endif></i>
                         <span class="favorites-count">{{ $answer->favoritedUsers()->count() }}</span>
                     </a>
 

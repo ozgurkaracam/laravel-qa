@@ -19,14 +19,14 @@
                         <div class="media">
                             <div class="d-flex flex-column vote-controls mr-3 text-center">
                                 <a title="This question is useful" class="vote-up">
-                                    <i class="fas fa-caret-up fa-5x"></i>
+                                    <i class="fas fa-caret-up fa-5x" @if(\Illuminate\Support\Facades\Auth::user() && $question->likedUser()->where('like',1)->find(\Illuminate\Support\Facades\Auth::user()))style="color:greenyellow"@endif></i>
                                 </a>
                                 <span class="votes-count d-block">{{ $question->likedUser()->sum('like') }}</span>
-                                <a title="This question is not useful" class="vote-down off">
+                                <a title="This question is not useful" class="vote-down off" @if(\Illuminate\Support\Facades\Auth::user() && $question->likedUser()->where('like',-1)->find(\Illuminate\Support\Facades\Auth::user()))style="color:red"@endif>
                                     <i class="fas fa-caret-down fa-5x"></i>
                                 </a>
                                 <a title="Click to mark as favorite question (Click again to undo)" class="favorite">
-                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star fa-2x" @if(\Illuminate\Support\Facades\Auth::user() && $question->favoritedUsers()->find(\Illuminate\Support\Facades\Auth::user()))style="color:orange"@endif></i>
                                     <span class="favorites-count">{{ $question->favoritedUsers()->count() }}</span>
                                 </a>
                             </div>
