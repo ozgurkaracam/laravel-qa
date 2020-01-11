@@ -47,7 +47,14 @@ class User extends Authenticatable
     }
 
     public function likes(){
-        return $this->morphToMany('\App\Question','likable','questionlikes','user_id','likable_id')->withPivot('like');
+        return $this->morphedByMany('\App\Question','likable','questionlikes','user_id','likable_id')->withPivot('like');
+    }
+
+    public function favoriteAnswers(){
+        return $this->morphedByMany(Answer::class,'fav','favorites','user_id','fav_id');
+    }
+    public function favoriteQuestions(){
+        return $this->morphedByMany(Question::class,'fav','favorites','user_id','fav_id');
     }
 
     public function getGetDateAttribute(){

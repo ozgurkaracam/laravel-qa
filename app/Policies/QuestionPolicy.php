@@ -41,7 +41,7 @@ class QuestionPolicy
      */
     public function create(User $user)
     {
-        
+
     }
 
     /**
@@ -67,6 +67,7 @@ class QuestionPolicy
     {
         return $user->id==$question->user_id && $question->answers <1;
     }
+
 
     /**
      * Determine whether the user can restore the question.

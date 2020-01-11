@@ -110,9 +110,15 @@ class QuestionsController extends Controller
     }
 
     public function bestanswer(Request $request,Question $question){
+        $this->authorize('update',$question);
         $answer=Answer::find($request->answer);
-        $question->bestAnswer()->dissociate();
-        $question->bestAnswer()->associate($answer)->save();
+        if($answer->isBest())
+            $question->bestAnswer()->dissociate()->save();
+        else{
+            $question->bestAnswer()->dissociate();
+            $question->bestAnswer()->associate($answer)->save();
+        }
+
         return redirect()->back();
     }
 }

@@ -10,16 +10,26 @@
         <h1>{{$question->answers->count()}} Answers</h1>
     </div>
     <div class="card-body">
+
         @include('layouts._messages')
         @foreach($question->answers as $answer)
             <div class="media">
-                <form action="{{ route('questions.bestanswer',$answer->question) }}" id="selectbest" method="POST">
+
+                <form action="{{ route('questions.bestanswer',$answer->question) }}" id="selectbest{{$answer->id}}" method="POST">
                     {{ csrf_field() }}
-                    <input type="hidden" name="answer", value="{{ $answer->id }}">
+                    <input type="hidden" name="answer" value="{{ $answer->id }}">
                 </form>
+                @if($answer->isBest())
+                    <div class="m-auto" style="cursor: pointer">
+                        <i class="fas fa-check fa-3x" onclick="getElementById('selectbest{{$answer->id}}').submit()" @if($answer->isBest())style="color: limegreen" @endif></i>
+                    </div>
+                @else
+                @can('update',$answer->question)
                 <div class="m-auto" style="cursor: pointer">
-                    <i class="fas fa-check fa-3x" onclick="getElementById('selectbest').submit()" @if($answer->isBest())style="color: limegreen" @endif></i>
+                    <i class="fas fa-check fa-3x" onclick="getElementById('selectbest{{$answer->id}}').submit()" @if($answer->isBest())style="color: limegreen" @endif></i>
                 </div>
+                @endcan
+                @endif
                 <div class="d-flex flex-column vote-controls mr-4 text-center">
                     <a title="This question is useful" class="vote-up">
                         <i class="fas fa-caret-up fa-5x"></i>
