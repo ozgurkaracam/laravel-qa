@@ -27,7 +27,7 @@
                                 </a>
                                 <a title="Click to mark as favorite question (Click again to undo)" class="favorite">
                                     <i class="fas fa-star"></i>
-                                    <span class="favorites-count">123</span>
+                                    <span class="favorites-count">{{ $question->favoritedUsers()->count() }}</span>
                                 </a>
                             </div>
 

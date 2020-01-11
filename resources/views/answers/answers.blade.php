@@ -40,8 +40,9 @@
                     </a>
                     <a title="Click to mark as favorite question (Click again to undo)" class="favorite">
                         <i class="fas fa-star fa-2x"></i>
-                        <span class="favorites-count">123</span>
+                        <span class="favorites-count">{{ $answer->favoritedUsers()->count() }}</span>
                     </a>
+
                 </div>
                 <div class="media-body">
                     @can('update',$answer)
