@@ -4,7 +4,15 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card">
+
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <input type="text" class="form-control col-md-10" name="" placeholder="Search some thing..">
+                    <input type="submit" value="Search" class="btn btn-success form-inline col-md-2">
+                </div>
+            </div>
+
+                <div class="card mt-4">
                     <div class="card-header">
                         <div class="d-flex align-items-center">
                             <h2>All Questions</h2>
@@ -22,7 +30,7 @@
                            <div class="media">
                                <div class="d-flex flex-column counters">
                                    <div class="vote">
-                                       <strong>{{$question->votes}}</strong> {{Str::plural('vote',$question->votes)}}
+                                       <strong>{{$question->likedUser()->sum('like')}}</strong> {{Str::plural('vote',$question->likedUser()->sum('like'))}}
                                    </div>
                                    <div class="status {{$question->status}} p-2">
                                        <strong>{{$question->answers()->count()}}</strong> {{ $question->answers->count()>1 ?  'Answers' : 'Answer' }}

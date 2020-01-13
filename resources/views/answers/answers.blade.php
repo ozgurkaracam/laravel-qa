@@ -12,17 +12,7 @@
     <div class="card-body">
 
         @include('layouts._messages')
-{{--        @if($question->best_answer_id!=null)--}}
-{{--            <div class="card">--}}
-{{--                --}}
-{{--                <div class="card-header">--}}
-{{--                    --}}
-{{--                </div>--}}
-{{--                <div class="card-body">--}}
-{{--                    asdasd--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            @endif--}}
+        
         @foreach($question->answers as $answer)
             <div class="media">
 
