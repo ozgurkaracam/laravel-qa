@@ -108,4 +108,8 @@ class AnswersController extends Controller
 
         return redirect()->route('questions.show',$question->slug)->with('success','Your answer deleted!!');
     }
+    public function favorite($answer){
+        Answer::find($answer)->favoritedUsers()->find(Auth::user()) ? Answer::find($answer)->favoritedUsers()->detach(Auth::user()) : Answer::find($answer)->favoritedUsers()->attach(Auth::user());
+        return redirect()->back();
+    }
 }

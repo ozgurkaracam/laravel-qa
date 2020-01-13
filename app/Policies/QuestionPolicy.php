@@ -92,4 +92,7 @@ class QuestionPolicy
     {
         //
     }
+    public function vote(User $user,Question $question){
+        return $user->id!=$question->user->id;
+    }
 }

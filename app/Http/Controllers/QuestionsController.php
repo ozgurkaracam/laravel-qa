@@ -7,6 +7,7 @@ use App\Http\Requests\AskQuestionRequest;
 use App\Question;
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class QuestionsController extends Controller
 {
@@ -121,6 +122,13 @@ class QuestionsController extends Controller
 
         return redirect()->back();
     }
+
+    public function favorite($question){
+        Question::find($question)->favoritedUsers()->find(Auth::user()) ? Question::find($question)->favoritedUsers()->detach(Auth::user()) : Question::find($question)->favoritedUsers()->attach(Auth::user());
+        return redirect()->back();
+    }
+
+
 }
 
 

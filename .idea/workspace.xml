@@ -4,10 +4,16 @@
     <list default="true" id="dcb9a038-591f-4f0f-b49d-a4c163494788" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Answer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Answer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/FavoriteSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/FavoriteSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AnswersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AnswersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestionsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Policies/AnswerPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/AnswerPolicy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Policies/QuestionPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/QuestionPolicy.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/answers/answers.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/answers/answers.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/questions/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/questions/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +151,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../instagramclone" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
@@ -188,7 +194,8 @@
       <workItem from="1577570043115" duration="54000" />
       <workItem from="1578582049787" duration="6293000" />
       <workItem from="1578633673554" duration="9434000" />
-      <workItem from="1578738526977" duration="10819000" />
+      <workItem from="1578738526977" duration="13752000" />
+      <workItem from="1578892309943" duration="5153000" />
     </task>
     <servers />
   </component>
@@ -200,18 +207,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1575728502614" />
-    <state x="883" y="170" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575728097555">
+    <state x="883" y="170" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1578776129068">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="883" y="170" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1575728097555" />
+    <state x="883" y="170" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1578776129068" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1575994845702">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1575994845702" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1577570094618">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1578777453984">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1577570094618" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1578777453984" />
     <state x="488" y="106" key="SettingsEditor" timestamp="1577378143420">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -228,9 +235,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1578745336231" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1578774552942">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1578902838829">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1578774552942" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1578902838829" />
   </component>
 </project>

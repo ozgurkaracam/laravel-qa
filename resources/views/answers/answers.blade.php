@@ -12,6 +12,17 @@
     <div class="card-body">
 
         @include('layouts._messages')
+{{--        @if($question->best_answer_id!=null)--}}
+{{--            <div class="card">--}}
+{{--                --}}
+{{--                <div class="card-header">--}}
+{{--                    --}}
+{{--                </div>--}}
+{{--                <div class="card-body">--}}
+{{--                    asdasd--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            @endif--}}
         @foreach($question->answers as $answer)
             <div class="media">
 
@@ -31,16 +42,27 @@
                 @endcan
                 @endif
                 <div class="d-flex flex-column vote-controls mr-4 text-center">
+                    <form action="{{ route('voteup','answer') }}" method="POST" id="voteupanswer{{$answer->id}}">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="voteanswer" value="{{ $answer->id }}">
+                    </form>
                     <a title="This question is useful" class="vote-up">
-                        <i class="fas fa-caret-up fa-5x" @if(\Illuminate\Support\Facades\Auth::user() && $answer->likedUser()->where('like',1)->find(\Illuminate\Support\Facades\Auth::user()))style="color:greenyellow"@endif></i>
+                        <i class="fas fa-caret-up fa-5x" onclick="document.getElementById('voteupanswer{{$answer->id}}').submit()" style="cursor:pointer; @if(\Illuminate\Support\Facades\Auth::user() && $answer->likedUser()->where('like',1)->find(\Illuminate\Support\Facades\Auth::user())) color:greenyellow @endif" ></i>
                     </a>
                     <span class="votes-count">{{ $answer->likedUser()->sum('like') }}</span>
+                    <form action="{{ route('votedown','answer') }}" method="POST" id="votedownanswer{{$answer->id}}">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="voteanswer" value="{{ $answer->id }}">
+                    </form>
                     <a title="This question is not useful" class="vote-down off">
-                        <i class="fas fa-caret-down fa-5x" @if(\Illuminate\Support\Facades\Auth::user() && $answer->likedUser()->where('like',-1)->find(\Illuminate\Support\Facades\Auth::user()))style="color:red"@endif></i>
+                        <i class="fas fa-caret-down fa-5x" onclick="document.getElementById('votedownanswer{{$answer->id}}').submit()"  style="@if(\Illuminate\Support\Facades\Auth::user() && $answer->likedUser()->where('like',-1)->find(\Illuminate\Support\Facades\Auth::user())) color:red; @endif cursor:pointer"></i>
                     </a>
-                    <a title="Click to mark as favorite question (Click again to undo)" class="favorite">
-                        <i class="fas fa-star fa-2x" @if(\Illuminate\Support\Facades\Auth::user() && $answer->favoritedUsers()->find(\Illuminate\Support\Facades\Auth::user()))style="color: orange"@endif></i>
+                    <a title="Click to mark as favorite question (Click again to undo)" onclick="document.getElementById('favorite{{$answer->id}}').submit()" class="favorite">
+                        <i class="fas fa-star fa-2x" @auth onclick="" @endauth style="@auth cursor:pointer; @endauth @if(\Illuminate\Support\Facades\Auth::user() && $answer->favoritedUsers()->find(\Illuminate\Support\Facades\Auth::user()))color: orange @endif"></i>
                         <span class="favorites-count">{{ $answer->favoritedUsers()->count() }}</span>
+                        <form action="{{ route('answers.favorite',$answer) }}" id="favorite{{$answer->id}}" method="post">
+                            {{ csrf_field() }}
+                        </form>
                     </a>
 
                 </div>

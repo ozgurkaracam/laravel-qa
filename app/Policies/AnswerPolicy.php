@@ -91,4 +91,7 @@ class AnswerPolicy
     {
         //
     }
+    public function vote(User $user,Answer $answer){
+        return $user->id!=$answer->user->id;
+    }
 }
